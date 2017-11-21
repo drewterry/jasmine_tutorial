@@ -4,6 +4,8 @@ services:
   web:
     build: .
     #command: nodemon -L --inspect=0.0.0.0:5858
+    #keep alive
+    command: bash -c "while true; do sleep 10; done"
     volumes:
       - ./app:/code
       - ./spec:/spec
