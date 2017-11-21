@@ -3,12 +3,17 @@ version: "3"
 services:
   web:
     build: .
+    
+    #watch source and reload
     #command: nodemon -L --inspect=0.0.0.0:5858
+    
     #keep alive
-    command: bash -c "while true; do sleep 10; done"
+    #command: bash -c "while true; do sleep 10; done"
+    
+    #run tests
+    command: npm run test
     volumes:
-      - ./app:/code
-      - ./spec:/spec
+      - .:/code
     ports:
       - "8000:8000"
       - "5858:5858"
